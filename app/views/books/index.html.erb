@@ -1,3 +1,6 @@
+<div><%= flash[:created] %></div>
+<div><%= flash[:destroyed] %></div>
+
 <h1>Books</h1>
 
 <% @books.each do |book| %>
@@ -8,7 +11,8 @@
   <p>Body</p>
   <span><%= book.body %></span>
 
-  <span><%= link_to "Show", book_path(book.id) %></span>
+  <span><%= link_to "Show", book_path(book.id) %><span>
   <span><%= link_to "Edit", edit_book_path(book.id) %></span>
+  <span><%= link_to "Destroy", book_path(book.id),method: :delete,"data-confirm"=>"Are you sure?" %></span>
 
 <% end %>
